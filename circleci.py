@@ -45,7 +45,7 @@ def start_job(
     org: str = "finsberg",
     project: str = "cppyy-backend",
     build_aarch64_wheel: bool = True,
-    branch: str = "build-wheels-with-cibuildwheel",
+    branch: str = "master",
     **kwargs,
 ) -> int:
     import http.client
@@ -56,7 +56,6 @@ def start_job(
         "content-type": "application/json",
         "Circle-Token": f"{token}",
     }
-
     # Start pipeline
     payload = {
         "branch": branch,
@@ -115,7 +114,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--token", default=os.environ.get("CIRCLE_API_TOKEN"))
     parser.add_argument("mode", choices=["artifact", "job"])
     parser.add_argument("--vcs", default="github")
-    parser.add_argument("--org", default="wlav")
+    parser.add_argument("--org", default="finsberg")
     parser.add_argument("--project", default="cppyy-backend")
     parser.add_argument("--job-number", default=0)
     parser.add_argument("--build-aarch64-wheel", default=True)
