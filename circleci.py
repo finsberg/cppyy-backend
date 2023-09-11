@@ -42,7 +42,7 @@ def get_artifact(
 def start_job(
     token: str,
     vcs: str = "github",
-    org: str = "wlav",
+    org: str = "finsberg",
     project: str = "cppyy-backend",
     build_aarch64_wheel: bool = True,
     branch: str = "build-wheels-with-cibuildwheel",
